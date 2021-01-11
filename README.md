@@ -1,2 +1,2 @@
 # rps
-A game of rock, papers, scissors. 
+A game of rock, papers, and scissors. 

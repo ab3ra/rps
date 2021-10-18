@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function computerPlay(){
+    let random = (Math.random() * 10)
+    random = random.toFixed(2)
+    if (random <= 3.33) {
+        return 'rock';
+    }
+    else if (random > 3.34 && random <= 6.66) {
+        return 'paper'; 
+    }
+    else if (random > 6.67 && random <= 10) {
+        return 'scissors'; 
+    }
+}
+
+
+
+let computerScore = 0
+let playerScore = 0
+let counter = 0
+
+function letsplay(playerSelection, computerSelection) {
+    if (playerSelection == 'rock' && computerSelection == 'paper') {
+        computerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You lost this round :('
+    }
+    else if (playerSelection == 'rock' &&  computerSelection == 'scissors') {
+        playerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You won this round!'
+    }
+    else if (playerSelection == 'paper' &&  computerSelection == 'rock') {
+        playerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You won this round!'
+    }
+    else if (playerSelection == 'paper' &&  computerSelection == 'scissors') {
+        computerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You lost this round :('
+    }
+    else if (playerSelection == 'scissors' &&  computerSelection == 'rock') {
+        computerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You lost this round :('
+    }
+    else if (playerSelection == 'scissors' &&  computerSelection == 'paper') {
+        playerScore++
+        return `You chose ${playerSelection}, and the computer chose ${computerSelection}` + ': You won this round!'
+    }
+    else if (playerSelection == computerSelection) {
+        return `You chose ${playerSelection} and the computer chose ${computerSelection}: No points are assigned.` + counter--;
+    }
+    else if (playerSelection == null || playerSelection == undefined) {
+        return 'My purpose is it to process either rock, paper, or scissors. At least I didn\'t end up like my cousin Ronny, he just passes the butter...anyway, please enter an apporopriate value.'
+    }
+    else {
+        return 'My purpose is it to process either rock, paper, or scissors. At least I didn\'t end up like my cousin Ronny, he just passes the butter...anyway, please enter an apporopriate value.'
+    }
+}
+
+function game(){
+   while (counter < 5){
+    let playerSelection = prompt('Do you choose Rock, Paper or Scissors?')
+    if (playerSelection == 'rock' || playerSelection == 'scissors' || playerSelection == 'paper') {  
+        playerSelection = playerSelection.toLowerCase()
+        playerSelection;
+    }
+    const computerSelection = computerPlay();
+    counter++
+    console.log(letsplay(playerSelection, computerSelection) +  `\nPlayer: ${playerScore} | Computer: ${computerScore}`)
+}
+    if (playerScore > computerScore && playerScore == 5) {
+        console.log('You Won!')
+    }
+    else if (playerScore < computerScore && computerScore == 5) {
+        console.log('You Lost :(')
+    }
+    else if (playerScore == 5 && computerScore == 5){
+        console.log
+    }
+}
+
+console.log(game())
+
+
+
+
+
+
+</script>
+</body>
+</html>
